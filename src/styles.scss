@@ -1,1 +1,46 @@
+
+
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../node_modules/bulma/bulma.sass";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+.main {
+  display: flex;
+  min-height: 100vh;
+}
+
+.section {
+  flex: 1;
+}
+
+
+
+@media (max-width: 1024px) {
+  .news-list {
+  padding-left: 5%;
+  padding-right: 5%;
+  // width: 90%;
+
+}
+}
+
+.fa-heart {
+  color: #EC5858;
+}
+
+.fa-external-link-alt {
+  color:  #3273dc;
+}
+
+.link-icon {
+  padding-right: 1em;
+}
+
+.fa-star {
+  color: #f8d49d;
+}
+
+.fa-times {
+    color: #EC5858;
+
+}

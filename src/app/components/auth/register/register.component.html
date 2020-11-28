@@ -1,0 +1,66 @@
+<div class="section">
+
+  <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+
+
+  <div class="errors" *ngIf="errors.length >= 1">
+    <app-toast *ngFor="let error of errors" [message]="error" (removeError)="clearErrors()"></app-toast>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegistration()">
+
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control has-icons-left">
+          <input class="input " type="text" placeholder="Enter your username" name="username"
+            formControlName="username">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <p class="control has-icons-left">
+          <input class="input" type="password" placeholder="Password" name="password" formControlName="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Confirm Password</label>
+        <p class="control has-icons-left">
+          <input class="input" type="password" placeholder="Confirm password" name="confirmPassword"
+            formControlName="confirmPassword">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+        <p class="help is-danger" *ngIf="!passwordConfirmed">Passwords do not match</p>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" name="termsOfService" formControlName="termsOfService">
+            I agree to the <a href="#">terms and conditions</a>
+          </label>
+        </div>
+        <p class="help is-danger" *ngIf="!acceptedTerms">You must accept the terms of service.</p>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" [disabled]="registerForm.invalid" type="submit">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light" (click)="resetForm()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

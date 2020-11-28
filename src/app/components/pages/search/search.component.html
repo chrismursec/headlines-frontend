@@ -1,0 +1,41 @@
+<div class="container pt-6">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="control has-icons-right mx-6">
+      <input class="input is-radiusless" type="text" placeholder="Search" formControlName="search">
+      <span class="icon is-small is-right is-clickable">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+    <div class="container">
+
+    </div>
+  </form>
+
+  <hr>
+
+
+
+  <div class="container news-list" *ngIf="dataLoaded">
+    <div *ngIf="articles.length < 1" class="has-text-centered">
+      <p>No Results Found</p>
+    </div>
+
+    <div *ngIf="articles.length > 0">
+      <div *ngIf="isAuthenticated" class="">
+        <button class="button is-primary" (click)="addSearchToFavorites()">Favourite this search</button>
+      </div>
+
+      <div class="columns is-multiline">
+        <div *ngFor="let article of articles" class="column is-one-third-desktop is-half-tablet">
+          <app-article-card [title]="article.title" [source]="article.source.name" [description]="article.description"
+            [url]="article.url" [imageUrl]="article.urlToImage" [date]="article.publishedAt"
+            [authenticated]="isAuthenticated">
+          </app-article-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

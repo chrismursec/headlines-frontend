@@ -1,0 +1,23 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="183.213" height="39" viewBox="0 0 183.213 39">
+
+  <g id="Group_2" data-name="Group 2" transform="translate(-650.787 -427)">
+    <text id="ThePaper" transform="translate(677 458)" fill="#707070" font-size="32" font-family="Montserrat-Light, Montserrat" font-weight="300"><tspan x="0" y="0">The</tspan><tspan y="0" font-family="Montserrat-SemiBold, Montserrat" font-weight="600">Paper</tspan></text>
+    <g id="Group_1" data-name="Group 1" transform="translate(7 6.452)">
+      <g id="Path_1" data-name="Path 1" transform="translate(644.105 429.355)" fill="none">
+        <path d="M0,0H9.977V10.185H0Z" stroke="none"/>
+        <path d="M 0.999995231628418 0.9999971389770508 L 0.999995231628418 9.185417175292969 L 8.976555824279785 9.185417175292969 L 8.976555824279785 0.9999971389770508 L 0.999995231628418 0.9999971389770508 M -4.76837158203125e-06 -2.86102294921875e-06 L 9.976555824279785 -2.86102294921875e-06 L 9.976555824279785 10.18541717529297 L -4.76837158203125e-06 10.18541717529297 L -4.76837158203125e-06 -2.86102294921875e-06 Z" stroke="none" fill="#707070"/>
+      </g>
+      <line id="Line_1" data-name="Line 1" x2="23.445" transform="translate(643.787 443.051)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_9" data-name="Line 9" x2="23.445" transform="translate(643.787 445.72)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_10" data-name="Line 10" x2="23.445" transform="translate(643.787 448.279)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_11" data-name="Line 11" x2="23.445" transform="translate(643.787 451.057)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_2" data-name="Line 2" x2="9.551" transform="translate(657.681 429.914)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_15" data-name="Line 15" x2="9.551" transform="translate(657.681 433.524)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_13" data-name="Line 13" x2="9.551" transform="translate(657.681 431.719)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_14" data-name="Line 14" x2="9.551" transform="translate(657.681 435.094)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_16" data-name="Line 16" x2="9.551" transform="translate(657.681 436.828)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_17" data-name="Line 17" x2="9.551" transform="translate(657.681 438.562)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+
+
+.article-card {
+  // border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  height: auto;
+}
+
+.save-item {
+  cursor: pointer;
+}
+
+.view-article {
+  text-decoration: none;
+  color: inherit;
+}
+
+i {
+  padding-right: 1em;
+}
+// @media (max-width: 760px) {
+//   .article-card {
+//   padding-left: 5%;
+//   padding-right: 5%;
+//   // width: 90%;
+
+// }
+// }

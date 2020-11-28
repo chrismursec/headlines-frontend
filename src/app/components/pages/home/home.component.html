@@ -1,0 +1,29 @@
+<!-- <app-hero></app-hero> -->
+<div class="tabs is-centered " [ngClass]="((screenWidth < 700 ? 'is-small' : ''))">
+  <ul>
+    <li *ngFor="let cat of categories" [ngClass]="((activeTab === cat.name ? 'is-active' : ''))"
+      (click)="getCategory(cat.name)">
+      <a>
+        <span class="icon "><i class="{{cat.icon}}" aria-hidden="true"></i></span>
+        <span *ngIf="screenWidth > 900">{{cat.name[0].toUpperCase() + cat.name.slice(1)}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="container news-list">
+  <div *ngIf="dataLoaded" class="columns is-multiline ">
+    <div *ngFor="let article of articles" class="column is-one-third-desktop is-half-tablet">
+      <app-article-card [title]="article.title" [source]="article.source.name" [description]="article.description"
+        [url]="article.url" [imageUrl]="article.urlToImage" [date]="article.publishedAt" [authenticated]="isAuthenticated">
+      </app-article-card>
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom">
+  <button *ngIf="dataLoaded && !noMoreResults" class="button" (click)="onLoadMore()">Load More</button>
+
+</div>

@@ -1,0 +1,28 @@
+.navbar-brand {
+  color: #4a4a4a;
+
+  .navbar-item {
+
+    text-decoration: none;
+
+    &:hover {
+      color: #4a4a4a;
+    }
+
+    img {
+      margin-right: .5em;
+    }
+
+    font-family: 'Montserrat',
+    sans-serif;
+
+    .the {
+      font-weight: 300;
+    }
+
+    .paper {
+      font-weight: 600;
+    }
+
+  }
+}
