@@ -16,10 +16,10 @@ export class AuthService {
   private tokenTimer: any;
   private userId: string;
   private isAuthenticated: boolean = false;
-  private hostUrl: string = 'http://localhost:3000/api/auth';
+  // private hostUrl: string = 'http://localhost:3000/api/auth';
+  private hostUrl: string = 'https://headlines-backend.herokuapp.com/api/auth';
   private username: string;
   constructor(private http: HttpClient, private router: Router) { }
-
 
   getToken() {
     return this.token;

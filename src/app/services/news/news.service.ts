@@ -11,7 +11,8 @@ export class NewsService {
 
   private savedItems: SavedItem[] = [];
   private savedItemsUpdated = new Subject<{savedItems: SavedItem[]}>();
-  private url = 'http://localhost:3000/api/news/';
+  // private url = 'http://localhost:3000/api/news/';
+  private url = 'https://headlines-backend.herokuapp.com//api/news/';
 
   constructor(private http: HttpClient) { }
 
