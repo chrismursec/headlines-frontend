@@ -1,0 +1,64 @@
+<div *ngFor="let item of currentDataSet">
+  <div class="card">
+    <div class="card-header">
+      <p class="card-header-title">{{item.title}}</p>
+    </div>
+    <div class="card-content">
+      <div class="content">{{item.description}}</div>
+    </div>
+
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          <span class="icon is-small mr-1"
+            ><i
+              class="fas fa-external-link-alt link-icon"
+              aria-hidden="true"
+            ></i
+          ></span>
+          <a href="{{item.url}}">View Article</a>
+        </span>
+      </p>
+
+      <p *ngIf="!isSavedItem" class="card-footer-item">
+        <span>
+          <span role="button" class="icon is-small"
+            ><i class="fas fa-heart link-icon" aria-hidden="true"></i
+          ></span>
+          Save
+        </span>
+      </p>
+
+      <p *ngIf="isSavedItem" class="card-footer-item">
+        <span (click)="onRemoveSavedItem(item._id)">
+          <span role="button" class="icon is-small"
+            ><i class="fas fa-times link-icon" aria-hidden="true"></i
+          ></span>
+          Remove
+        </span>
+      </p>
+    </footer>
+  </div>
+  <br />
+</div>
+
+<div class="container column is-9">
+  <div *ngIf="dataLoaded" class="section">
+    <h2 class="title">{{ title }}</h2>
+
+    <div *ngFor="let item of currentDataSet">
+      <app-article-card
+        [title]="item.title"
+        [description]="item.description"
+        [source]="item.source.name"
+        [url]="item.url"
+        [imageUrl]="item.urlToImage || item.imageUrl"
+        [date]="item.publishedAt"
+        [authenticated]="isAuthenticated"
+        [id]="item._id"
+        [isSavedItem]="isSavedItem"
+      >
+      </app-article-card>
+    </div>
+  </div>
+</div>

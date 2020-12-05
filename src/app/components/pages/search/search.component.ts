@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
       .subscribe(response => {
       this.dataLoaded = true;
         this.articles = response.output.articles;
-        console.log(this.articles);
       })
   }
 

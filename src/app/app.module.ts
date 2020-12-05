@@ -21,6 +21,9 @@ import { SearchComponent } from './components/pages/search/search.component';
 import { ArticleCardComponent } from './components/common/article-card/article-card.component';
 import { AuthInterceptor } from './services/auth/auth.interceptor';
 import { AuthGuard } from './services/auth/auth.guard';
+import { SettingsComponent } from './components/pages/user-account/settings/settings.component';
+import { ChangePasswordComponent } from './components/pages/user-account/settings/change-password/change-password.component';
+import { DeleteAccountComponent } from './components/pages/user-account/settings/delete-account/delete-account.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { AuthGuard } from './services/auth/auth.guard';
     UserAccountComponent,
     SearchComponent,
     ArticleCardComponent,
+    SettingsComponent,
+    ChangePasswordComponent,
+    DeleteAccountComponent,
   ],
   imports: [
     BrowserModule,

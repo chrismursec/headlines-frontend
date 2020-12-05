@@ -17,7 +17,12 @@ export class ArticleCardComponent implements OnInit {
   @Input() imageUrl: string;
   @Input() date: Date;
   @Input() authenticated: boolean;
+
+  @Input() id: string;
   dateString: string;
+
+
+  @Input() isSavedItem: boolean = false;
 
 
   constructor(private newsService: NewsService){}
@@ -27,20 +32,24 @@ export class ArticleCardComponent implements OnInit {
     const itemToSave = {
       title: title,
       source: source,
-      description: description,
+      description: description || 'No description available.',
       dateString: dateString,
       date: date,
       url: url,
       imageUrl: imageUrl
     };
-    console.log(itemToSave)
 
     this.newsService.addSavedItem(itemToSave);
 
-    
-
   }
 
+   onRemoveSavedItem(id: string) {
+
+    this.newsService.removeSavedItem(id).subscribe(() => {
+        this.newsService.getSavedItems();
+
+    })
+  }
 
   ngOnInit(): void {
     let articleDate = new Date(this.date)

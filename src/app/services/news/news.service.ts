@@ -11,48 +11,36 @@ export class NewsService {
 
   private savedItems: SavedItem[] = [];
   private savedItemsUpdated = new Subject<{savedItems: SavedItem[]}>();
+  private url = 'http://localhost:3000/api/news/';
 
   constructor(private http: HttpClient) { }
 
 
   getNewsByCategory(category: string, page: string = '1') {
-    return this.http.get<{output: {articles, totalResults}}>('http://localhost:3000/api/news/homepagetabs', {params: {category: category, page: page}})
+    return this.http.get<{output: {articles, totalResults}}>(this.url + 'homepagetabs', {params: {category: category, page: page}})
   }
 
   getNewsBySearchTerm(searchTerm: string) {
-    return this.http.post<{output: {articles}}>('http://localhost:3000/api/news/search', {searchTerm: searchTerm});
+    return this.http.post<{output: {articles}}>(this.url + 'search', {searchTerm: searchTerm});
   }
 
-
-
-
-
-
-
   addSearchTermToUser(searchTerm: string) {
-    return this.http.post('http://localhost:3000/api/news/addtofav', {searchTerm: searchTerm}).subscribe(data => {
-      console.log(data)
+    return this.http.post(this.url + 'addtofav', {searchTerm: searchTerm}).subscribe(data => {
     })
   }
 
   getUsersSavedSearches() {
-    return this.http.get<string[]>('http://localhost:3000/api/news/favourites');
+    return this.http.get<string[]>(this.url + 'favourites');
   }
 
 
-
-
-
-
-
   addSavedItem(item) {
-    return this.http.post('http://localhost:3000/api/news/saveitem', {item: item}).subscribe(data => {
-      console.log(data);
+    return this.http.post(this.url + 'saveitem', {item: item}).subscribe(data => {
     })
   }
 
   getSavedItems() {
-    this.http.get<{items: SavedItem[]}>('http://localhost:3000/api/news/saveitem')
+    this.http.get<{items: SavedItem[]}>(this.url + 'saveitem')
       .subscribe(data => {
         this.savedItems = data.items;
         this.savedItemsUpdated.next({
@@ -62,7 +50,7 @@ export class NewsService {
   }
 
   removeSavedItem(id: string) {
-    return this.http.delete('http://localhost:3000/api/news/saveitem/' + id );
+    return this.http.delete(this.url + 'saveitem/' + id );
       
   }
 

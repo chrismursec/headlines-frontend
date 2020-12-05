@@ -1,15 +1,7 @@
-
-
 <section class="main-content columns is-fullheight">
-
-
-
-
-  <aside class="column is-3 is-narrow-mobile is-fullheight section ">
+  <aside class="column is-3 is-narrow-mobile is-fullheight section">
     <p class="menu-label is-hidden-touch">Navigation</p>
     <ul class="menu-list">
-
-
       <li>
         <a role="button" class="" (click)="getSavedItemData()">
           <span class="icon"><i class="fa fa-heart"></i></span> Saved
@@ -21,68 +13,47 @@
           <span class="icon"><i class="fa fa-star"></i></span>
           Favourites
           <span class="icon is-small"><i class="fas fa-angle-down"></i></span>
-
         </a>
 
         <ul *ngIf="showFavouritesList">
           <li *ngFor="let item of savedSearchItems">
             <a role="button" (click)="getSavedSearchData(item)">
               <span class="icon is-small"><i class="fa fa-link"></i></span>
-              {{item[0].toUpperCase() + item.slice(1)}}
+              {{ item[0].toUpperCase() + item.slice(1) }}
             </a>
           </li>
         </ul>
-
       </li>
+
       <li>
-        <a href="#" class="">
+        <a role="button" [routerLink]="['/settings']">
           <span class="icon"><i class="fa fa-cog"></i></span> Settings
         </a>
       </li>
     </ul>
   </aside>
 
-  
+  <div class="container news-list">
+    <h2 class="title">{{ title }}</h2>
 
-  <div class="container column is-9">
-    <div *ngIf="dataLoaded" class="section">
-      <h2 class="title">{{title}}</h2>
-
-      <div *ngFor="let item of currentDataSet">
-        <div class="card">
-          <div class="card-header">
-            <p class="card-header-title">{{item.title}}</p>
-          </div>
-          <div class="card-content">
-            <div class="content">{{item.description}}</div>
-          </div>
-
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span>
-                <span class="icon is-small mr-1"><i class="fas fa-external-link-alt link-icon" aria-hidden="true"></i></span>
-                <a href="{{item.url}}">View Article</a>
-              </span>
-            </p>
-            <p *ngIf="!isSavedItem" class="card-footer-item">
-              <span>
-                <span role="button" class="icon is-small "><i class="fas fa-heart link-icon" aria-hidden="true"></i></span>
-                Save
-              </span>
-            </p>
-            <p *ngIf="isSavedItem" class="card-footer-item">
-              <span (click)="onRemoveSavedItem(item._id)">
-                <span role="button" class="icon is-small "><i class="fas fa-times link-icon" aria-hidden="true"></i></span>
-                Remove
-              </span>
-            </p>
-          </footer>
-        </div>
-        <br />
+    <div *ngIf="dataLoaded" class="columns is-multiline">
+      <div
+        *ngFor="let item of currentDataSet"
+        class="column is-half-desktop is-full-tablet"
+      >
+        <app-article-card
+          [title]="item.title"
+          [source]="item.source.name"
+          [description]="item.description"
+          [url]="item.url"
+          [imageUrl]="item.urlToImage || item.imageUrl"
+          [date]="item.publishedAt || item.dateString"
+          [authenticated]="isAuthenticated"
+          [isSavedItem]="isSavedItem"
+          [id]="item._id"
+        >
+        </app-article-card>
       </div>
-
-
     </div>
   </div>
-
 </section>

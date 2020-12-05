@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SavedItem } from 'src/app/models/savedItem.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { NewsService } from 'src/app/services/news/news.service';
 
 @Component({
@@ -17,13 +18,14 @@ export class UserAccountComponent implements OnInit {
   isSavedItem = false;
   title: string;
   public screenWidth: any;
+  isAuthenticated: boolean;
 
   private savedItemSub: Subscription;
   savedItems = [];
 
 
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private authService: AuthService) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -49,6 +51,7 @@ export class UserAccountComponent implements OnInit {
         this.isSavedItem = true;
         this.dataLoaded = true;
         this.currentDataSet = this.savedItems;
+
       })
 
   }
@@ -57,7 +60,7 @@ export class UserAccountComponent implements OnInit {
     this.showFavouritesList = !this.showFavouritesList;
   }
 
-  onRemoveSavedItem(id) {
+  onRemoveSavedItem(id: string) {
 
     this.newsService.removeSavedItem(id).subscribe(() => {
     })
@@ -66,6 +69,7 @@ export class UserAccountComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.isAuthenticated = this.authService.getIsAuth();
     this.getSavedItemData();
     this.screenWidth = window.innerWidth;
     this.newsService.getUsersSavedSearches().subscribe(data => {

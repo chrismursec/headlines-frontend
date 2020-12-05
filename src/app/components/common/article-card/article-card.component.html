@@ -1,33 +1,59 @@
-  <div class="card is-radiusless article-card">
+<div class="card is-radiusless article-card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="{{imageUrl}}" alt="{{title}}">
+      <img src="{{ imageUrl }}" alt="{{ title }}" />
     </figure>
   </div>
   <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-        <p class="title is-size-5 is-size-5-mobile">{{title}}</p>
-        <p class="subtitle is-6">{{source}}</p>
-      </div>
+    <div class="card-info">
+      <p class="title is-size-5 is-size-5-mobile">{{ title }}</p>
+      <p class="subtitle is-6">{{ source }}</p>
     </div>
     <div class="content">
-      {{description}}
-      <br>
-      <time>{{dateString}}</time>
+      <p>{{ description || "No description available" }}</p>
+      <time class="subtitle is-7">{{ dateString }}</time>
     </div>
   </div>
   <footer class="card-footer">
     <p class="card-footer-item">
       <span>
-        <span class="icon is-small mr-1"><i class="fas fa-external-link-alt link-icon" aria-hidden="true"></i></span>
-        <a href="{{url}}" class="view-article">View Article</a>
+        <span class="icon is-small mr-1"
+          ><i class="fas fa-external-link-alt link-icon" aria-hidden="true"></i
+        ></span>
+        <a href="{{ url }}" target="_blank" rel="noopener" class="view-article"
+          >View Article</a
+        >
       </span>
     </p>
-    <p *ngIf="authenticated" class="card-footer-item">
-      <span class="save-item" (click)="onSaveItem(title, source, description, dateString, date, url, imageUrl)">
-        <span role="button" class="icon is-small save-item" ><i class="fas fa-heart link-icon" aria-hidden="true"></i></span>
+
+    <p *ngIf="authenticated && !isSavedItem" class="card-footer-item">
+      <span
+        class="save-item"
+        (click)="
+          onSaveItem(
+            title,
+            source,
+            description,
+            dateString,
+            date,
+            url,
+            imageUrl
+          )
+        "
+      >
+        <span role="button" class="icon is-small save-item"
+          ><i class="fas fa-heart link-icon" aria-hidden="true"></i
+        ></span>
         Save
+      </span>
+    </p>
+
+    <p *ngIf="isSavedItem" class="card-footer-item">
+      <span (click)="onRemoveSavedItem(id)">
+        <span role="button" class="icon is-small"
+          ><i class="fas fa-times link-icon" aria-hidden="true"></i
+        ></span>
+        Remove
       </span>
     </p>
   </footer>

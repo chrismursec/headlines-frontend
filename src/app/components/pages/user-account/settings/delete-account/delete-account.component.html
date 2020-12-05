@@ -1,0 +1,33 @@
+<h1 class="title is-3">Delete Account</h1>
+
+<p>
+  Please note this action cannot be reversed. If you still want to delete your
+  account type your username, <strong>{{ username }}</strong> , into the box
+  below.
+</p>
+
+<br />
+
+<div class="field">
+  <div class="control has-icons-left">
+    <input
+      class="input"
+      type="text"
+      placeholder="Enter your username"
+      name="confirmUsername"
+      [(ngModel)]="confirmUsername"
+    />
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+</div>
+
+<button
+  role="button"
+  [disabled]="confirmUsername != username"
+  class="button is-danger"
+  (click)="onDeleteAccount()"
+>
+  Delete Account
+</button>
